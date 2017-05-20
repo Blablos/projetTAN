@@ -1,3 +1,5 @@
+from math import *
+
 """declaration des variables"""
 
 """parametres modulables"""
@@ -21,10 +23,11 @@ Vt=(V0+V1)/2;"""seuil pour coder 1 ou 2"""
 
 """initialisation des variables a calculer"""
 
-n=len(s);"""taille du fichier audio en bits"""
+"""n=len(s);""""""taille du fichier audio en bits"""
 t=[];"""temps"""
 x=[];"""porteuse normalise"""
 c=[];"""code"""
+y=[];"""y sortie"""
 e=[0];"""erreur reportee, au debut a 0"""
 epsilon=[];"""erreur locale"""
 epsilon2=[];"""erreur restante"""
@@ -33,10 +36,11 @@ yLisse=[0];"""y reconstruit"""
 """-------------------------------------------------------"""
 
 """calcul des variables a calculer"""
-
-for i in range(0,n):
+"""s=[];"""
+for i in range(0,100):
     """calcul de t"""
     t.append(i*Te2);
+    """s.append(sin(2*pi*t[i]));""""""Test avec la meme porteuse que l exemple prof"""
     """calcul de x"""
     x.append(s[i]*Vt+Vt);
     """calcul de c"""
@@ -46,9 +50,9 @@ for i in range(0,n):
         c.append(0);
     """calcul de y"""
     if (c[i]==0):
-        y=V0;
+        y.append(V0);
     else:
-        y=V1;
+        y.append(V1);
     """calcul de epsilon"""
     epsilon.append(y[i]-x[i]);
     """calcul de epsilon2"""
